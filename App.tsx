@@ -1,9 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { Provider } from 'react-redux';
+import store from './store';
 
-const App = () => (
-  <SafeAreaProvider>
-    <StatusBar />
-  </SafeAreaProvider>
-);
+const App = () => {
+  return (
+    <Provider store={store}>
+      <SafeAreaProvider>
+        <StatusBar />
+      </SafeAreaProvider>
+    </Provider>
+  );
+};
 export default App;
