@@ -4,11 +4,13 @@ import { get, getAll } from './actions';
 import { SLICE_NAME } from './constants';
 
 export interface State {
+  activeId: number;
   entity?: City;
   entities: City[];
 }
 
 export const INITIAL_STATE: State = {
+  activeId: 0,
   entity: undefined,
   entities: []
 };
@@ -16,7 +18,11 @@ export const INITIAL_STATE: State = {
 const slice = createSlice({
   name: SLICE_NAME,
   initialState: INITIAL_STATE,
-  reducers: {},
+  reducers: {
+    setActiveId: (state, action) => {
+      state.activeId = action.payload;
+    }
+  },
   extraReducers: (builder) => {
     builder.addCase(get.fulfilled, (state, payload) => {
       state.entity = payload.payload;
@@ -29,3 +35,4 @@ const slice = createSlice({
 });
 
 export const cityReducer = slice.reducer;
+export const cityActions = slice.actions;
