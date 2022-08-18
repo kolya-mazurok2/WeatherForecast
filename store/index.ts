@@ -1,10 +1,12 @@
 import { applyMiddleware, configureStore } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
 import { cityReducer } from './city/reducer';
+import { forecastReducer } from './forecast/reducer';
 
 const store = configureStore({
   reducer: {
-    city: cityReducer
+    city: cityReducer,
+    forecast: forecastReducer
   },
   enhancers: [applyMiddleware(thunk)]
 });

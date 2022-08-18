@@ -3,7 +3,7 @@ export interface City {
   name: string;
   latitude: number;
   longitude: number;
-  forecasts?: Forecast[];
+  forecasts: Forecast[];
   createdAt: string;
   updatedAt: string;
 }
